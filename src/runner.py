@@ -1053,6 +1053,7 @@ class CopilotCliRunner:
         
         for pattern, service_type in url_patterns:
             for match in re.finditer(pattern, content, re.IGNORECASE):
+                url = match.group(0).rstrip('.,;:')
                 if url not in seen:
                     seen.add(url)
                     urls.append({
